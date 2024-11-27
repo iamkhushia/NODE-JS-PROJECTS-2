@@ -1,6 +1,6 @@
 const express=require('express')
 
-const port=7000
+const port=9000
 
 const app=express()
 
@@ -13,7 +13,7 @@ const passportlocal = require('./config/passportlocal');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'khushi',
+    secret: 'krupa',
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -32,7 +32,7 @@ app.use('/',express.static(path.join(__dirname,'/public')))
 
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
-// app.use('/',require('./routes/indexroutes'))
+app.use('/',require('./routes/indexroutes'))
 
 const db = require('./config/db')
 
