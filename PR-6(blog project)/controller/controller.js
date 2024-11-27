@@ -6,17 +6,12 @@ const resiterpage = (req, res) => {
 
 }
 const loginpage = (req, res) => {
+    if (req.cookies['auth']) { //get
+        return res.render('/')
+    }
     return res.render('login')
 }
-// const dashbord = async (req, res) => {
 
-//     try {
-        
-//     } catch (error) {
-        
-//     }
-//     return res.render('dash')
-// }
 const Resiterusers = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -47,7 +42,7 @@ console.log(user);
             console.log(`Email and Password not valid`);
             return res.redirect('/')
         }
-
+         res.cookie('auth',user); //set
         return res.redirect('/viewblog')
     } catch (error) {
         console.log(error);

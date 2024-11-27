@@ -13,7 +13,7 @@ const passportlocal = require('./config/passportlocal');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'krupa',
+    secret: 'khushi',
     resave: false,
     saveUninitialized: true,
     cookie: {
