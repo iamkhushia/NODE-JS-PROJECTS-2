@@ -6,8 +6,8 @@ const resiterpage = (req, res) => {
 
 }
 const loginpage = (req, res) => {
-    if (req.cookies['auth']) { //get
-        return res.render('/')
+    if (req.cookies['auth']) { //get cookie
+        return res.redirect('/viewblog')
     }
     return res.render('login')
 }
@@ -42,7 +42,7 @@ console.log(user);
             console.log(`Email and Password not valid`);
             return res.redirect('/')
         }
-         res.cookie('auth',user); //set
+         res.cookie('auth',user); //set cookie
         return res.redirect('/viewblog')
     } catch (error) {
         console.log(error);
@@ -52,7 +52,9 @@ console.log(user);
 }
 
 const addblogpage=async(req,res)=>{
-
+    if (!req.cookies['auth']) { //get cookie
+        return res.redirect('/')
+    }
     
     return res.render('addblog',)
 
@@ -80,8 +82,10 @@ await blogmodels.create({
 
 
 const viewblog= async (req, res)=>{
+    if (!req.cookies['auth']) { //get cookie
+        return res.redirect('/')
+    }
 try {
-    
 
     let users=await blogmodels.find({})
     return res.render('viewblog',{
@@ -98,10 +102,10 @@ try {
 }
 
 const deleterecord= async (req, res)=>{
-   
+    if (!req.cookies['auth']) { //get cookie
+        return res.redirect('/')
+    }
     try {
-        
-
         let id =req.query.id
 
 let single=await blogmodels.findById(id)
@@ -116,7 +120,9 @@ fs.unlinkSync(single.image)
 }
 
 const editrecord= async (req, res)=>{
-   
+    if (!req.cookies['auth']) { //get cookie
+        return res.redirect('/')
+    }
     try {
         let id = req.query.id;
         let single = await blogmodels.findById(id);
@@ -131,7 +137,9 @@ const editrecord= async (req, res)=>{
 }
 
 const upblog= async (req, res)=>{
-  
+    if (!req.cookies['auth']) { //get cookie
+        return res.redirect('/')
+    }
     try {
         
         const {editid,title,desc}=req.body 
