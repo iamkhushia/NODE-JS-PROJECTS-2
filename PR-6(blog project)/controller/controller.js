@@ -13,6 +13,9 @@ const loginpage = (req, res) => {
 }
 
 const Resiterusers = async (req, res) => {
+    if (req.cookies['auth']) { //get cookie
+        return res.redirect('/viewlog')
+    }
     try {
         const { name, email, password } = req.body;
 

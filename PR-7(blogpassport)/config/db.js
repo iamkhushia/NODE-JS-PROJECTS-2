@@ -1,7 +1,7 @@
 const { default: mongoose } = require('mongoose')
 const mobngoose=require('mongoose')
 
-mongoose.connect('mongodb://localhost/passportBlog')
+mongoose.connect('mongodb://localhost/blogpassport')
 
 const database=mongoose.connection
 
