@@ -70,11 +70,8 @@
 
 <body>
     <div class="login-container">
-        <h3>Welcome Back</h3>
+        <h3>Welcome</h3>
         <form action="/login" method="post">
-            <div class="alert alert-danger d-none" id="error-alert">
-                Invalid email or password.
-            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
@@ -85,7 +82,7 @@
                     placeholder="Enter your password" required>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <input type="submit" value="submit" class="btn btn-primary w-100">
             </div>
         </form>
         <div class="form-footer mt-3">
@@ -95,20 +92,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Sample script to display an error alert (replace with server-side validation)
-        document.querySelector("form").addEventListener("submit", function (event) {
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            if (email !== "user@example.com" || password !== "password123") {
-                event.preventDefault();
-                const alert = document.getElementById("error-alert");
-                alert.classList.remove("d-none");
-                alert.textContent = "Invalid email or password.";
-            }
-        });
-    </script>
+    
 </body>
 
 </html>

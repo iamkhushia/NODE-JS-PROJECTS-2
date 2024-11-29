@@ -24,21 +24,14 @@ const Resiterusers = async (req, res) => {
 
 const loginuseres = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await usermodels.findOne({ email: email })
-        console.log(user);
-
-        if (!user || user.password !== password) {
-            console.log(`Email and Password not valid`);
-            return res.redirect('/')
-        }
+        console.log("ave chhe");
+        
         return res.redirect('/viewblog')
     } catch (error) {
         console.log(error);
         return false;
     }
 }
-
 const addblogpage = async (req, res) => {
     return res.render('addblog',)
 }
