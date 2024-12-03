@@ -24,7 +24,6 @@ const Resiterusers = async (req, res) => {
 
 const loginuseres = async (req, res) => {
     try {
-        console.log("ave chhe");
         
         return res.redirect('/viewblog')
     } catch (error) {

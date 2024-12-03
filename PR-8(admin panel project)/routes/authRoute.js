@@ -6,7 +6,6 @@ const { loginPage, registerPage, registerUser,loginUser,dashboardPage,logoutUser
 
 const passport = require('passport');
 
-
 routes.get('/',loginPage)
 routes.get('/register',registerPage)
 routes.post('/registeruser',registerUser);
