@@ -59,10 +59,7 @@ const addblogpage=async(req,res)=>{
         return res.redirect('/')
     }
     
-    return res.render('addblog',)
-
-
-
+    return res.render('addblog')
 }
 
 const addblogusers= async (req, res)=>{
