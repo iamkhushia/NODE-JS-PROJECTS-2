@@ -1,6 +1,6 @@
 const express = require('express');
 
-const port = 9000;
+const port = 8000;
 
 const app = express();
 
@@ -12,8 +12,12 @@ const db = require('./config/db');
 
 const cookieParser = require('cookie-parser');
 
+// const flash = require('connect-flash');
+
 app.use('/',express.static(path.join(__dirname,'public')));
 app.use(cookieParser());
+
+// ===========
 const passport = require('passport');
 const passportLocal = require('./config/passportLocal');
 const session = require('express-session');
@@ -28,6 +32,14 @@ app.use(session({
 app.use(passport.session());
 app.use(passport.initialize());
 app.use(passport.setUser);
+// =============
+
+// app.use((req,res,next)=>{
+//     res.locals.message = req.flash();
+//     return next;
+// })
+// app.use(flash());
+
 app.use(express.urlencoded());
 
 app.use('/',require('./routes/indexRoute'));
