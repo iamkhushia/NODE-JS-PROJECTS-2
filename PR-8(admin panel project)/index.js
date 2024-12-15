@@ -10,6 +10,8 @@ const path = require('path');
 
 const db = require('./config/db');
 
+app.use("/uploads",express.static(path.join(__dirname,"uploads")))
+
 const cookieParser = require('cookie-parser');
 
 // const flash = require('connect-flash');
@@ -36,7 +38,7 @@ app.use(passport.setUser);
 
 // app.use((req,res,next)=>{
 //     res.locals.message = req.flash();
-//     return next;
+//     return next();
 // })
 // app.use(flash());
 

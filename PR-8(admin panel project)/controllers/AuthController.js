@@ -163,14 +163,11 @@ const myProfile = async(req,res)=>{
 }
 const profileChange = async(req,res)=>{
     try {
-        // console.log(req.body);
-
         const {editprofile,name,password} = req.body;
         await UserModel.findOneAndUpdate({email:editprofile},{
             name:name,
             password:password
         })
-        // alert("profile successfully changed")
          console.log("profile successfully changed");
         
         return res.redirect('/dashboard')
@@ -192,7 +189,7 @@ const changePassword = async(req,res)=>{
 const postChangepassword = async(req,res)=>{
     try {
         let email = res.locals.user.email;
-
+        
         let user = await UserModel.findOne({email:email});
         const useroldpassword = user.password;
 

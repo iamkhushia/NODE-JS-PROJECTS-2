@@ -6,6 +6,7 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row">
+
                 <div class="col-12 d-flex no-block align-items-center">
                     <h4 class="page-title">Tables</h4>
                     <div class="ms-auto text-end">
@@ -47,6 +48,7 @@
                                             <th scope="col">#</th>
                                             <th scope="col">Category</th>
                                             <th>Action</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -56,10 +58,18 @@
                                             <td><%= ++i %></td>
                                             <td><%= cat.category_name %></td>
                                             <td>
-                                                <a class="btn btn-sm btn-dark" href="/category/deletecategory?id=<%= cat.id %>">Delete</a>
+                                                <a class="btn btn-danger btn-sm " href="/category/deletecategory?id=<%= cat.id %>"><i class="fa fa-trash"></i> Delete</a>&nbsp;&nbsp;&nbsp;
+
+                                                <a class="btn btn-sm btn-secondary" href="/category/editcategory?id=<%= cat.id %>"><i class="fa fa-edit"></i> Edit</a>
                                             </td>
+
                                             <td>
-                                                <a class="btn btn-sm btn-info" href="/category/editcategory?id=<%= cat.id %>">Edit</a>
+                                                <% if(cat.status == "active") { %>
+                                                    <a href="/category/changestatus?id=<%= cat.id %>&status=<%= cat.status %>" class="btn btn-warning"><%= cat.status %></a>
+                                                 
+                                                <% } else { %>
+                                                    <a href="/category/changestatus?id=<%= cat.id %>&status=<%= cat.status %>" class="btn btn-warning"><%= cat.status %></a>
+                                                <% } %>
                                             </td>
                                         </tr>
                                    <% }) %>

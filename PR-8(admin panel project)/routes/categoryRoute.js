@@ -2,7 +2,7 @@ const express = require('express');
 
 const routes = express.Router();
 
-const { addCategoryPage, viewCategoryPage, insertCategory, deleteCategory, editCategory, updateCategory } = require('../controllers/CategoryCantroller');
+const { addCategoryPage, viewCategoryPage, insertCategory, deleteCategory, editCategory, updateCategory, changeStatus } = require('../controllers/CategoryCantroller');
 
 const passport = require('passport');
 
@@ -12,6 +12,7 @@ routes.post('/insertcategory',insertCategory)
 routes.get('/deletecategory',deleteCategory)
 routes.get('/editcategory',editCategory)
 routes.post('/updatecategory',updateCategory)
+routes.get('/changestatus',changeStatus)
 
 
 module.exports = routes;
