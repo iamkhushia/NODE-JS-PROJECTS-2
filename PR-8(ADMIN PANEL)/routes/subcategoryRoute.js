@@ -8,7 +8,7 @@ const passport = require('passport');
 
 routes.get('/',passport.checkUser,subcategoryPage);
 routes.get('/addsubcategory',passport.checkUser,addsubCategory);
-routes.post('/insertsubcategory',insertSubcategory);
+routes.post('/insertsubcategory',passport.checkUser,insertSubcategory);
 routes.get('/deletesubcategory',deletesubCategory);
 routes.get('/editsubcategory',editsubCategory);
 routes.post('/updatesubcategory',updateSubCategory);

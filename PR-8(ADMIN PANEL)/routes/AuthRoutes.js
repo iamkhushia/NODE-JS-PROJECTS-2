@@ -5,7 +5,7 @@ const routes = express.Router();
 const {  registerPage, 
     registerUser , 
     loginUser , 
-    loginPage, // Add this line
+    loginPage, 
     dashboardPage, 
     logoutUser , 
     forgotPassword, 

@@ -7,7 +7,7 @@ const { addCategoryPage, viewCategoryPage, insertCategory, deleteCategory, editC
 const passport = require('passport');
 routes.get('/addcategory',passport.checkUser,addCategoryPage);
 routes.get('/viewcategory',passport.checkUser,viewCategoryPage);
-routes.post('/insertcategory',insertCategory);
+routes.post('/insertcategory',passport.checkUser,insertCategory);
 routes.get('/deleteCategory',deleteCategory);
 routes.get('/edit',editCategory);
 routes.post('/updateCategory',updateCategory);

@@ -20,8 +20,11 @@ const st = multer.diskStorage({
 
 const fileUpload = multer({storage:st}).single("image");
 
+const passport = require('passport');
+
+
 routes.get('/',productPage)
-routes.get('/addproductpage',addProductPage)
+routes.get('/addproductpage',passport.checkUser,addProductPage)
 routes.post('/addproduct',fileUpload,addProduct)
 routes.get('/deleteproduct',deleteProduct)
 routes.get('/ajaxGetcategory',ajaxCategory);
