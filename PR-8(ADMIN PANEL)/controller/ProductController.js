@@ -127,8 +127,6 @@ const changeStatus = async (req, res) => {
         const exsubcategory = await ExsubcategoryModel.find({status : 'active'});
 
         let single = await ProductModel.findById(id).populate("categoryId").populate("subcategoryId").populate("exsubcategoryId");
-        console.log(single.image);  
-
         return res.render('edit_product',{
             category:category,
             subcategory:subcategory,
@@ -141,21 +139,15 @@ const changeStatus = async (req, res) => {
     }
   }
 
-const updateProduct = async (req, res) => {
-    try {
+  const updateProduct = async (req , res) => {
+    try {        
         const { editid, category, subcategory, exsubcategory, product, price, desc } = req.body;
-
+        
         let single = await ProductModel.findById(editid);
-        console.log("editid:", editid);
-
-
-        if (!single) {
-            console.log("Product not found");
-            return res.redirect('/product');  
-        }
 
         if (req.file) {
             fs.unlinkSync(single.image);
+
             await ProductModel.findByIdAndUpdate(editid, {
                 categoryId: category,
                 subcategoryId: subcategory,
@@ -165,7 +157,7 @@ const updateProduct = async (req, res) => {
                 description: desc,
                 image: req.file.path
             });
-            console.log("Record updated");
+            console.log("Record updated with image");
             return res.redirect('/product');
         } else {
             await ProductModel.findByIdAndUpdate(editid, {
@@ -175,9 +167,9 @@ const updateProduct = async (req, res) => {
                 name: product,
                 price: price,
                 description: desc,
-                image: single.image 
+                // image: single.image 
             });
-            console.log("Record updated but,not image");
+            console.log("Record updated but without image");
             return res.redirect('/product');
         }
     } catch (err) {
