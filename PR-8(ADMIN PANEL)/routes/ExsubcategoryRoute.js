@@ -11,8 +11,8 @@ routes.get('/addexsubcategorypage',passport.checkUser,addexsubcategoryPage);
 routes.post('/insertexsubcategory',passport.checkUser,insertExsubcategory);
 routes.get('/ajaxGetcategory',ajaxCategory);
 routes.get('/deleteexsubcategory',deleteExsubcategory);
-routes.get('/editexsubcategory',editExsubcategory);
-routes.post('/updateexsubcategory',updateExsubCategory);
+routes.get('/editexsubcategory',passport.checkUser,editExsubcategory);
+routes.post('/updateexsubcategory',passport.checkUser,updateExsubCategory);
 routes.get('/changestatus',changeStatus);
 
 module.exports = routes;

@@ -8,9 +8,9 @@ const passport = require('passport');
 routes.get('/addcategory',passport.checkUser,addCategoryPage);
 routes.get('/viewcategory',passport.checkUser,viewCategoryPage);
 routes.post('/insertcategory',passport.checkUser,insertCategory);
-routes.get('/deleteCategory',deleteCategory);
+routes.get('/deleteCategory',passport.checkUser,deleteCategory);
 routes.get('/edit',editCategory);
-routes.post('/updateCategory',updateCategory);
-routes.get('/changestatus',changeStatus);
+routes.post('/updateCategory',passport.checkUser,updateCategory);
+routes.get('/changestatus',passport.checkUser,changeStatus);
 
 module.exports = routes;
