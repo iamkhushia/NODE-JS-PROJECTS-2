@@ -7,6 +7,9 @@ const app = express();
 const database = require('./config/db');
 database();
 
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.urlencoded());
 
 app.use('/',require('./routes/indexRoute'));

@@ -63,8 +63,8 @@
                                     <% exsubcategory.map((exsubcat,i) =>{ %>
                                             <tr>
                                                 <td><%= ++i %></td>
-                                                <td><%= exsubcat.categoryId.category_name %></td>
-                                                <td><%= exsubcat.subcategoryId.subcategory %></td>
+                                                <td><%= exsubcat?.categoryId.category_name %></td>
+                                                <td><%= exsubcat?.subcategoryId.subcategory %></td>
                                                 <td><%= exsubcat.exsubcategory %></td>
                                                 <td>
                                                     <a href=" /exsubcategory/deleteexsubcategory?id=<%=exsubcat.id %>"
