@@ -33,7 +33,7 @@ routes.get('/logoutuser',passport.checkUser,logoutUser);
 routes.post('/forgotpassword',forgotPassword);
 routes.get('/otp',otpPage);
 routes.post('/postotp',postOtp);
-routes.get('/newpass',passport.checkUser,newpass);
+routes.get('/newpass',newpass);
 routes.post('/postnewpassword',postNewpassword);
 routes.get('/profile',profilePage);
 routes.post('/profileChange',profileChange)

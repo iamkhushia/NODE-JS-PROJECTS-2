@@ -124,7 +124,6 @@ const newpass = (req,res) => {
         if(!req.cookies['otp']){
             return res.redirect('/')
         }
-
             return res.render('newpassword')   
      
     }catch(err){
